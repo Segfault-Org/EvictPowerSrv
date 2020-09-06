@@ -14,8 +14,8 @@ namespace EvictPowerSrv
     public delegate bool Shutdown();
     class LoopThread
     {
-        private const String LOG_SOURCE = "Evict Power Loop";
-        private const String LOG_NAME = "Application";
+        public const String LOG_SOURCE = "Evict Power Loop";
+        public const String LOG_NAME = "Application";
 
         private EventLog log;
         private readonly Shutdown shutdownCallback;
@@ -30,10 +30,6 @@ namespace EvictPowerSrv
         public void Start()
         {
             log = new EventLog();
-            if (!EventLog.SourceExists(LOG_SOURCE))
-            {
-                EventLog.CreateEventSource(LOG_SOURCE, LOG_NAME);
-            }
             log.Source = LOG_SOURCE;
             log.Log = LOG_NAME;
 

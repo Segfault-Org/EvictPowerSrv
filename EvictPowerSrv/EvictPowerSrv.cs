@@ -9,8 +9,8 @@ namespace EvictPowerSrv
 {
     public partial class EvictPowerSrv : ServiceBase
     {
-        private const String LOG_SOURCE = "Evict Power";
-        private const String LOG_NAME = "Application";
+        public const String LOG_SOURCE = "Evict Power";
+        public const String LOG_NAME = "Application";
 
         private EventLog log;
         private Thread workerThread;
@@ -27,10 +27,6 @@ namespace EvictPowerSrv
         {
             // Init logging
             log = new EventLog();
-            if (!EventLog.SourceExists(LOG_SOURCE))
-            {
-                EventLog.CreateEventSource(LOG_SOURCE, LOG_NAME);
-            }
             log.Source = LOG_SOURCE;
             log.Log = LOG_NAME;
 
